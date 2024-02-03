@@ -4,6 +4,7 @@ import React from "react";
 import { createContext, useContext, useEffect, useState } from "react";
 import { StatusBar } from 'expo-status-bar';
 import Home from './components/Home';
+import InfoPage from './components/InfoPage';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {NavigationContainer} from "@react-navigation/native";
 
@@ -20,7 +21,8 @@ export default function App() {
 
     <NavigationContainer> 
       <Stack.Navigator>
-        <Stack.Screen name='Home' component={Home}></Stack.Screen>
+        <Stack.Screen name='InfoPage' component={InfoPage}/>
+        <Stack.Screen name='Home' component={Home}/>
       </Stack.Navigator>
 
     </NavigationContainer>
