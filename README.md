@@ -5,7 +5,7 @@ Install dependencies: npx expo install react-dom react-native-web @expo/webpack-
 
 Run app: 
 
-cd pocketpets
+cd Pocketpets
 
 npx expo start
 
