@@ -35,6 +35,110 @@ export default function InfoPage() {
                 />
             )
         }
+        else if (currentCat == 3) {
+            return (
+                <Image
+                    source={require('../assets/images/am_shorthair_3.png')}  // Replace with the actual path to your image
+                    style={styles.image}
+                />
+            )
+        }
+        else if (currentCat == 4) {
+            return (
+                <Image
+                    source={require('../assets/images/bengal_4.png')}  // Replace with the actual path to your image
+                    style={styles.image}
+                />
+            )
+        }
+        else if (currentCat == 5) {
+            return (
+                <Image
+                    source={require('../assets/images/birman_5.png')}  // Replace with the actual path to your image
+                    style={styles.image}
+                />
+            )
+        }
+        else if (currentCat == 6) {
+            return (
+                <Image
+                    source={require('../assets/images/bombay_6.png')}  // Replace with the actual path to your image
+                    style={styles.image}
+                />
+            )
+        }
+        else if (currentCat == 7) {
+            return (
+                <Image
+                    source={require('../assets/images/brit_shorthair_7.png')}  // Replace with the actual path to your image
+                    style={styles.image}
+                />
+            )
+        }
+        else if (currentCat == 8) {
+            return (
+                <Image
+                    source={require('../assets/images/egypt_8.png')}  // Replace with the actual path to your image
+                    style={styles.image}
+                />
+            )
+        }
+        else if (currentCat == 9) {
+            return (
+                <Image
+                    source={require('../assets/images/maine_9.png')}  // Replace with the actual path to your image
+                    style={styles.image}
+                />
+            )
+        }
+        else if (currentCat == 10) {
+            return (
+                <Image
+                    source={require('../assets/images/persian_10.png')}  // Replace with the actual path to your image
+                    style={styles.image}
+                />
+            )
+        }
+        else if (currentCat == 11) {
+            return (
+                <Image
+                    source={require('../assets/images/ragdoll_11.png')}  // Replace with the actual path to your image
+                    style={styles.image}
+                />
+            )
+        }
+        else if (currentCat == 12) {
+            return (
+                <Image
+                    source={require('../assets/images/russian_12.png')}  // Replace with the actual path to your image
+                    style={styles.image}
+                />
+            )
+        }
+        else if (currentCat == 13) {
+            return (
+                <Image
+                    source={require('../assets/images/siamese_13.png')}  // Replace with the actual path to your image
+                    style={styles.image}
+                />
+            )
+        }
+        else if (currentCat == 14) {
+            return (
+                <Image
+                    source={require('../assets/images/sphynx_14.png')}  // Replace with the actual path to your image
+                    style={styles.image}
+                />
+            )
+        }
+        else if (currentCat == 15) {
+            return (
+                <Image
+                    source={require('../assets/images/tuxedo_15.png')}  // Replace with the actual path to your image
+                    style={styles.image}
+                />
+            )
+        }
     }
 
     function onForward() {
