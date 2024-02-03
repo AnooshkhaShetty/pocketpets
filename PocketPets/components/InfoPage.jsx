@@ -16,14 +16,43 @@ import {
 
 
 export default function InfoPage() {
-    const [currentCat, setCurrentCat] = useState(1);
+    const [currentCat, setCurrentCat] = useState(1); //change to props later
 
-    function getCatInfo() {
-        return(
-            <View>
-                
-            </View>
-        )
+    function getCat() {
+        if (currentCat == 1) {
+            return (
+                <Image
+                    source={require('../assets/images/abyss_rect.png')}  // Replace with the actual path to your image
+                    style={styles.image}
+                />
+            )
+        }
+        else if (currentCat == 2) {
+            return (
+                <Image
+                    source={require('../assets/images/am_bob_info.png')}  // Replace with the actual path to your image
+                    style={styles.image}
+                />
+            )
+        }
+    }
+
+    function onForward() {
+        if (currentCat == 15) {
+            setCurrentCat(1);
+        }
+        else {
+            setCurrentCat(currentCat + 1);
+        }
+    }
+
+    function onBack() {
+        if (currentCat == 1) {
+            setCurrentCat(15);
+        }
+        else {
+            setCurrentCat(currentCat - 1);
+        }
     }
 
 
@@ -31,10 +60,7 @@ export default function InfoPage() {
         <SafeAreaView style={styles.container}> 
 
             
-                <Image
-                    source={require('../assets/images/abyss_rect.png')}  // Replace with the actual path to your image
-                    style={styles.image}
-                />
+                {getCat()}
             
 
             <View style={{backgroundColor: "#44AA99", width: '100%', height: 100, position: 'absolute', top: 0}}>
@@ -44,10 +70,10 @@ export default function InfoPage() {
                 />
 
                 <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                    <Pressable style={{marginLeft: 320,}}>
+                    <Pressable onPress={onBack} style={{marginLeft: 320,}}>
                         <Ionicons name="chevron-back" size="40" color="#FFF"/>
                     </Pressable>
-                    <Pressable>
+                    <Pressable onPress={onForward}>
                         <Ionicons name="chevron-forward" size="40" color="#FFF"/>
                     </Pressable>
                 </View>
