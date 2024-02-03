@@ -3,8 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import React from "react";
 import { createContext, useContext, useEffect, useState } from "react";
 import { StatusBar } from 'expo-status-bar';
-import Home from './components/Home';
 import InfoPage from './components/InfoPage';
+import HomePage from './components/HomePage';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {NavigationContainer} from "@react-navigation/native";
 
