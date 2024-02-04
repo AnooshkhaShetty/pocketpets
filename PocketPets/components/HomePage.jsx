@@ -1,9 +1,48 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity, Pressable } from "react-native";
+import {useState, useEffect} from "react";
 import { useNavigation } from "@react-navigation/native";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
+import { app, db } from '../firebase_config.js';
+import firebase from "firebase/compat/app";
+import "firebase/compat/firestore";
+//import firestore from "@react-native-firebase/firestore";
 
 export default function Home() {
   const navigation = useNavigation();
+
+  const db = getFirestore();
+
+  const fetchData = async () => {
+  try {
+    const docRef = doc(db, "data", "data");
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      console.log("Document data:", docSnap.data());
+    } else {
+      console.log("No such document!");
+    }
+  } catch (error) {
+    console.error("Error getting document:", error);
+  }
+  };
+
+  fetchData();
+
+  /*const todoRef = firebase.firestore().collection('data');
+
+
+    useEffect(async () => {
+    todoRef
+    .onSnapshot(
+        querySnapshot.forEach((doc) => {
+          const {heading, text} = doc.data()
+          console.log(heading)
+          console.log(text)
+        })
+    )
+  }) */
 
   return (
     <View style={styles.container}>

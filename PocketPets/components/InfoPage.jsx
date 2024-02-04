@@ -17,7 +17,7 @@ import {
 
 const InfoPage = ({route}) => {
     const { clickedCat } = route.params;
-    console.log(clickedCat);
+    //console.log(clickedCat);
 
     const [oldCat, setOldCat] = useState(clickedCat);
     const [currentCat, setCurrentCat] = useState(clickedCat); //change to props later
