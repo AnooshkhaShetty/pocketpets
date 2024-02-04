@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import React from "react";
 import { createContext, useContext, useEffect, useState } from "react";
 import { StatusBar } from 'expo-status-bar';
+import InfoPage from './components/InfoPage';
 import HomePage from './components/HomePage';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {NavigationContainer} from "@react-navigation/native";
@@ -21,6 +22,7 @@ export default function App() {
     <NavigationContainer> 
       <Stack.Navigator>
         <Stack.Screen name='HomePage' component={HomePage}/>
+        <Stack.Screen name='InfoPage' component={InfoPage}/>
       </Stack.Navigator>
 
     </NavigationContainer>
