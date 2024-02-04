@@ -3,12 +3,16 @@ import {
   StyleSheet,
   Dimensions,
   View,
+  Pressable,
   Text,
   TouchableOpacity,
   SafeAreaView,
 } from "react-native";
 import { Camera } from "expo-camera";
 import { Video } from "expo-av";
+import { useNavigation } from "@react-navigation/native";
+import { Ionicons } from "@expo/vector-icons";
+
 const WINDOW_HEIGHT = Dimensions.get("window").height;
 const closeButtonSize = Math.floor(WINDOW_HEIGHT * 0.032);
 const captureSize = Math.floor(WINDOW_HEIGHT * 0.09);
@@ -21,6 +25,8 @@ export default function CameraPage() {
   const [isVideoRecording, setIsVideoRecording] = useState(false);
   const [videoSource, setVideoSource] = useState(null);
   const cameraRef = useRef();
+  const navigation = useNavigation();
+
   useEffect(() => {
     (async () => {
       const { status } = await Camera.requestCameraPermissionsAsync();
@@ -127,22 +133,28 @@ export default function CameraPage() {
   }
   return (
     <SafeAreaView style={styles.container}>
+      
       <Camera
+        
         ref={cameraRef}
         style={styles.container}
         type={cameraType}
-        flashMode={Camera.Constants.FlashMode.on}
+        flashMode={Camera.Constants.FlashMode.off}
         onCameraReady={onCameraReady}
         onMountError={(error) => {
           console.log("cammera error", error);
         }}
       />
+      
       <View style={styles.container}>
         {isVideoRecording && renderVideoRecordIndicator()}
         {videoSource && renderVideoPlayer()}
         {isPreview && renderCancelPreviewButton()}
         {!videoSource && !isPreview && renderCaptureControl()}
       </View>
+      <Pressable style={{marginLeft: 8, marginTop: 25,}} onPress={() => navigation.goBack()}>
+          <Ionicons name="close" size="40" color="#FFF"/>
+        </Pressable>
     </SafeAreaView>
   );
 }
