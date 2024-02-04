@@ -48,8 +48,9 @@ const styles = StyleSheet.create({
   },
   topImage: {
     width: "100%",
-    height: 100,
+    height: 120,
     resizeMode: "cover",
+    marginTop: 50,
   },
   centerRectangle: {
     flex: 1,
@@ -57,8 +58,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   innerRectangle: {
-    width: 280,
-    height: 380,
+    width: 320,
+    height: 450,
     backgroundColor: "#44AA99",
     borderRadius: 20,
     justifyContent: "center",
@@ -69,11 +70,12 @@ const styles = StyleSheet.create({
     height: 85,
     resizeMode: "contain",
     position: "absolute",
-    top: 10,
+    top: 30,
+
   },
   smallerRectangleImage: {
-    width: 200,
-    height: 240,
+    width: 230,
+    height: 260,
     resizeMode: "cover",
     borderRadius: 10,
     marginTop: 80,
@@ -81,7 +83,7 @@ const styles = StyleSheet.create({
   bottomButtonsContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
-    padding: 20,
+    //padding: -10,
   },
   circleButton: {
     width: 80,
@@ -90,11 +92,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#44AA99",
     justifyContent: "center",
     alignItems: "center",
+    marginBottom: 40, 
   },
   circleImage: {
     width: 50,
     height: 50,
-    resizeMode: "cover",
+    resizeMode: "contain",
     borderRadius: 0.01,
   },
 });

@@ -17,6 +17,7 @@ import {
 
 export default function InfoPage() {
     const [currentCat, setCurrentCat] = useState(1); //change to props later
+    const navigation = useNavigation();
 
     function getCat() {
         if (currentCat == 1) {
@@ -168,12 +169,17 @@ export default function InfoPage() {
             
 
             <View style={{backgroundColor: "#44AA99", width: '100%', height: 100, position: 'absolute', top: 0}}>
+                <Pressable style={{marginTop: 8, marginLeft: 8, }} onPress={() => navigation.goBack()}>
+                    <Ionicons name="close" size="40" color="#FFF"/>
+                </Pressable>
+
+                
                 <Image
                     source={require('../assets/images/pocket_pets_info.png')}
-                    style={{width: 150, height: 20, marginLeft: 15, marginTop: 20,}}
+                    style={{width: 150, height: 20, marginLeft: 15, marginTop: 60, position: 'absolute'}}
                 />
 
-                <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                <View style={{flexDirection: 'row', alignItems: 'center', marginBottom: 15,}}>
                     <Pressable onPress={onBack} style={{marginLeft: 320,}}>
                         <Ionicons name="chevron-back" size="40" color="#FFF"/>
                     </Pressable>
