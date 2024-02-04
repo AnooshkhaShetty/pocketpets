@@ -69,7 +69,7 @@ export default function ViewPage({route}) {
       return;
     }
     else if (caught[index]){
-      navigation.navigate('InfoPage', { clickedCat: index+1 });
+      navigation.navigate('InfoPage', { unlockedCats: vision, clickedCat: index+1 });
     }
 
     /* const newCaught = [...caught];

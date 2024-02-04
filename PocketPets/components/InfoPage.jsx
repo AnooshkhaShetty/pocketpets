@@ -16,12 +16,13 @@ import {
 
 
 const InfoPage = ({route}) => {
-    const { clickedCat } = route.params;
+    const { unlockedCats, clickedCat } = route.params;
     //console.log(clickedCat);
 
     const [oldCat, setOldCat] = useState(clickedCat);
     const [currentCat, setCurrentCat] = useState(clickedCat); //change to props later
     const [viewable, setViewable] = useState([true, false, true, false, false, false, true, false, false, false, false, false, false, false, false ]);
+    const [whichCats, setWhichCats] = useState(unlockedCats);
     const navigation = useNavigation();
 
     function getCat() {
@@ -154,12 +155,25 @@ const InfoPage = ({route}) => {
     }
 
     function onForward() {
-        if (currentCat == 15) {
+        //find next cat in catdex
+
+        for (let i = 0; i < unlockedCats.length; i++) {
+            if (unlockedCats[i] == currentCat) {
+                if (i + 1 == unlockedCats.length) {
+                    setCurrentCat(unlockedCats[0]);
+                }
+                else {
+                    setCurrentCat(unlockedCats[i+1]);
+                }
+            }
+        }
+
+        /* if (currentCat == 15) {
             setCurrentCat(1);
         }
         else {
             setCurrentCat(currentCat + 1);
-        }
+        } */
     }
 
     function onBack() {
