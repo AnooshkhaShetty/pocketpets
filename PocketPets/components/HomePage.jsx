@@ -1,7 +1,10 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, Image, StyleSheet, TouchableOpacity, Pressable } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Home() {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <Image
@@ -24,18 +27,18 @@ export default function Home() {
       </View>
 
       <View style={styles.bottomButtonsContainer}>
-        <TouchableOpacity style={styles.circleButton}>
+        <Pressable onPress={() => navigation.navigate('CameraPage')} style={styles.circleButton}>
           <Image
             source={require("../assets/images/camera.png")}
             style={styles.circleImage}
           />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.circleButton}>
+        </Pressable>
+        <Pressable style={styles.circleButton}>
           <Image
             source={require("../assets/images/viewphotos.png")}
             style={styles.circleImage}
           />
-        </TouchableOpacity>
+        </Pressable>
       </View>
     </View>
   );

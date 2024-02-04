@@ -5,6 +5,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { StatusBar } from 'expo-status-bar';
 import InfoPage from './components/InfoPage';
 import HomePage from './components/HomePage';
+import CameraPage from './components/CameraPage';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {NavigationContainer} from "@react-navigation/native";
 
@@ -13,15 +14,12 @@ import {NavigationContainer} from "@react-navigation/native";
 export default function App() {
   const Stack = createNativeStackNavigator();
 
-  {/* <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View> */}
   return (
 
     <NavigationContainer> 
       <Stack.Navigator>
         <Stack.Screen name='HomePage' component={HomePage}/>
+        <Stack.Screen name='CameraPage' component={CameraPage}/>
         <Stack.Screen name='InfoPage' component={InfoPage}/>
       </Stack.Navigator>
 
