@@ -177,21 +177,46 @@ const InfoPage = ({route}) => {
     }
 
     function onBack() {
-        if (currentCat == 1) {
+        for (let i = unlockedCats.length - 1; i > 0 ; i--) {
+            if (unlockedCats[i] == currentCat) {
+                if (i - 1 == unlockedCats.length) {
+                    setCurrentCat(unlockedCats[unlockedCats.length - 1]);
+                }
+                else {
+                    setCurrentCat(unlockedCats[i-1]);
+                }
+            }
+        }
+        /* if (currentCat == 1) {
             setCurrentCat(15);
         }
         else {
             setCurrentCat(currentCat - 1);
-        }
+        } */
     }
 
 
     return(
         <SafeAreaView style={styles.container}> 
-
+            <ScrollView>
             
                 {getCat()}
-            
+
+                { currentCat == 8 ? 
+                    <View style={{justifyContent: 'center', alignItems: "center", flexDirection: 'row'}}>
+                        <Image
+                            source={require('../assets/images/mau_1.png')}
+                            style={{width: 150, height: 150, marginBottom: 100, borderRadius: 10, borderWidth: 2, borderColor: "black", marginRight: 20}}
+                        />
+                        <Image
+                            source={require('../assets/images/mau_2.png')}
+                            style={{width: 150, height: 150, marginBottom: 100, borderRadius: 10, borderWidth: 2, borderColor: "black"}}
+                        />
+                    </View> :
+                    <View></View>
+                }  
+
+            </ScrollView>
 
             <View style={{backgroundColor: "#44AA99", width: '100%', height: 160, position: 'absolute', top: 0, paddingTop: '20%', flexDirection: 'row'}}>
                 <Pressable style={{marginLeft: 8, marginTop: 25,}} onPress={() => navigation.goBack()}>
