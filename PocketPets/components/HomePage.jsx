@@ -33,7 +33,7 @@ export default function Home() {
             style={styles.circleImage}
           />
         </Pressable>
-        <Pressable style={styles.circleButton}>
+        <Pressable style={styles.circleButton} onPress={() => navigation.navigate('ViewPage')}>
           <Image
             source={require("../assets/images/viewphotos.png")}
             style={styles.circleImage}

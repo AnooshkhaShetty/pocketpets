@@ -6,6 +6,7 @@ import { StatusBar } from 'expo-status-bar';
 import InfoPage from './components/InfoPage';
 import HomePage from './components/HomePage';
 import CameraPage from './components/CameraPage';
+import ViewPage from './components/ViewPage';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {NavigationContainer} from "@react-navigation/native";
 
@@ -17,10 +18,13 @@ export default function App() {
   return (
 
     <NavigationContainer> 
-      <Stack.Navigator>
-        <Stack.Screen name='HomePage' component={HomePage}/>
-        <Stack.Screen name='CameraPage' component={CameraPage}/>
+      <Stack.Navigator
+        screenOptions={{headerShown: false}}
+      >
+        {/* <Stack.Screen name='HomePage' component={HomePage}/>
+        <Stack.Screen name='CameraPage' component={CameraPage}/> */}
         <Stack.Screen name='InfoPage' component={InfoPage}/>
+        <Stack.Screen name='ViewPage' component={ViewPage}/>
       </Stack.Navigator>
 
     </NavigationContainer>

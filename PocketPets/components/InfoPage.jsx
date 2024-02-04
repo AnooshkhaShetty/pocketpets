@@ -168,8 +168,8 @@ export default function InfoPage() {
                 {getCat()}
             
 
-            <View style={{backgroundColor: "#44AA99", width: '100%', height: 100, position: 'absolute', top: 0}}>
-                <Pressable style={{marginTop: 8, marginLeft: 8, }} onPress={() => navigation.goBack()}>
+            <View style={{backgroundColor: "#44AA99", width: '100%', height: 160, position: 'absolute', top: 0, paddingTop: '20%', flexDirection: 'row'}}>
+                <Pressable style={{marginLeft: 8, marginTop: 25,}} onPress={() => navigation.goBack()}>
                     <Ionicons name="close" size="40" color="#FFF"/>
                 </Pressable>
 
@@ -179,11 +179,11 @@ export default function InfoPage() {
                     style={{width: 150, height: 20, marginLeft: 15, marginTop: 60, position: 'absolute'}}
                 />
 
-                <View style={{flexDirection: 'row', alignItems: 'center', marginBottom: 15,}}>
-                    <Pressable onPress={onBack} style={{marginLeft: 320,}}>
+                <View style={{flexDirection: 'row', alignItems: 'center', marginTop: 10,}}>
+                    <Pressable onPress={onBack} style={{marginLeft: 250, paddingRight: '4%'}}>
                         <Ionicons name="chevron-back" size="40" color="#FFF"/>
                     </Pressable>
-                    <Pressable onPress={onForward}>
+                    <Pressable onPress={onForward} style={{paddingLeft: '2%',}}>
                         <Ionicons name="chevron-forward" size="40" color="#FFF"/>
                     </Pressable>
                 </View>

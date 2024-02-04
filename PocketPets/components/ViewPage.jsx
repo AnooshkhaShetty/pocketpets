@@ -37,7 +37,7 @@ const caughtImages = [
   require("../assets/images/caught15.png"),
 ];
 
-export default function Home() {
+export default function ViewPage() {
   const [caught, setCaught] = useState(Array(initialImages.length).fill(false));
 
   const handleCatch = (index) => {
@@ -73,6 +73,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "space-between",
+    paddingTop: '15%',
   },
   gridItem: {
     width: "30%", // Adjust as needed
