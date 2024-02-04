@@ -177,9 +177,9 @@ const InfoPage = ({route}) => {
     }
 
     function onBack() {
-        for (let i = unlockedCats.length - 1; i > 0 ; i--) {
+        for (let i = unlockedCats.length - 1; i >= 0 ; i--) {
             if (unlockedCats[i] == currentCat) {
-                if (i - 1 == unlockedCats.length) {
+                if (i - 1 < 0) {
                     setCurrentCat(unlockedCats[unlockedCats.length - 1]);
                 }
                 else {
