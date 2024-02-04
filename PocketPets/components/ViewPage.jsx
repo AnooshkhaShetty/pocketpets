@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, Image, StyleSheet, TouchableOpacity, Pressable } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const initialImages = [
   require("../assets/images/dark1.png"),
@@ -37,7 +39,9 @@ const caughtImages = [
   require("../assets/images/caught15.png"),
 ];
 
-export default function ViewPage() {
+export default function ViewPage() {  
+  const navigation = useNavigation();
+
   const [caught, setCaught] = useState(Array(initialImages.length).fill(false));
 
   const handleCatch = (index) => {
@@ -48,6 +52,9 @@ export default function ViewPage() {
 
   return (
     <View style={styles.container}>
+      <Pressable style={{paddingTop: '15%',}} onPress={() => navigation.goBack()}>
+        <Ionicons name="chevron-back" size="50" color="#000"> </Ionicons>
+      </Pressable>
       <View style={styles.gridContainer}>
         {initialImages.map((image, index) => (
           <TouchableOpacity
@@ -73,7 +80,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "space-between",
-    paddingTop: '15%',
+    //paddingTop: '15%',
   },
   gridItem: {
     width: "30%", // Adjust as needed

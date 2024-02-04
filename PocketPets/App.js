@@ -21,8 +21,8 @@ export default function App() {
       <Stack.Navigator
         screenOptions={{headerShown: false}}
       >
-        {/* <Stack.Screen name='HomePage' component={HomePage}/>
-        <Stack.Screen name='CameraPage' component={CameraPage}/> */}
+        <Stack.Screen name='HomePage' component={HomePage}/>
+        <Stack.Screen name='CameraPage' component={CameraPage}/>
         <Stack.Screen name='InfoPage' component={InfoPage}/>
         <Stack.Screen name='ViewPage' component={ViewPage}/>
       </Stack.Navigator>

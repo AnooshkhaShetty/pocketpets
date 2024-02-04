@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 120,
     resizeMode: "cover",
-    marginTop: 50,
+    marginTop: 80,
   },
   centerRectangle: {
     flex: 1,
