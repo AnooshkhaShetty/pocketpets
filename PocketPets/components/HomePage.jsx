@@ -20,7 +20,7 @@ export default function Home() {
           />
 
           <Image
-            source={require("../assets/images/background-image.png")}
+            source={require("../assets/images/cat.png")}
             style={styles.smallerRectangleImage}
           />
         </View>
