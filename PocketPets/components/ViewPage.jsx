@@ -45,9 +45,22 @@ export default function ViewPage() {
   const [caught, setCaught] = useState(Array(initialImages.length).fill(false));
 
   const handleCatch = (index) => {
-    const newCaught = [...caught];
+    if (index == 0) {
+      const newCaught = [...caught];
+      newCaught[3] = true;
+      newCaught[7] = true;
+      setCaught(newCaught);
+    }
+    if (caught[index] == false) {
+      return;
+    }
+    else if (caught[index]){
+      navigation.navigate('InfoPage', { clickedCat: index+1 });
+    }
+
+    /* const newCaught = [...caught];
     newCaught[index] = true;
-    setCaught(newCaught);
+    setCaught(newCaught); */ // changes to caught are made after camera and model work
   };
 
   return (

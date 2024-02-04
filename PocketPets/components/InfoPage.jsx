@@ -15,131 +15,142 @@ import {
   import { useNavigation } from "@react-navigation/native";
 
 
-export default function InfoPage() {
-    const [currentCat, setCurrentCat] = useState(1); //change to props later
+const InfoPage = ({route}) => {
+    const { clickedCat } = route.params;
+    console.log(clickedCat);
+
+    const [oldCat, setOldCat] = useState(clickedCat);
+    const [currentCat, setCurrentCat] = useState(clickedCat); //change to props later
+    const [viewable, setViewable] = useState([true, false, true, false, false, false, true, false, false, false, false, false, false, false, false ]);
     const navigation = useNavigation();
 
     function getCat() {
-        if (currentCat == 1) {
-            return (
-                <Image
-                    source={require('../assets/images/abyss_rect.png')}  // Replace with the actual path to your image
-                    style={styles.image}
-                />
-            )
-        }
-        else if (currentCat == 2) {
-            return (
-                <Image
-                    source={require('../assets/images/am_bob_info.png')}  // Replace with the actual path to your image
-                    style={styles.image}
-                />
-            )
-        }
-        else if (currentCat == 3) {
-            return (
-                <Image
-                    source={require('../assets/images/am_shorthair_3.png')}  // Replace with the actual path to your image
-                    style={styles.image}
-                />
-            )
-        }
-        else if (currentCat == 4) {
-            return (
-                <Image
-                    source={require('../assets/images/bengal_4.png')}  // Replace with the actual path to your image
-                    style={styles.image}
-                />
-            )
-        }
-        else if (currentCat == 5) {
-            return (
-                <Image
-                    source={require('../assets/images/birman_5.png')}  // Replace with the actual path to your image
-                    style={styles.image}
-                />
-            )
-        }
-        else if (currentCat == 6) {
-            return (
-                <Image
-                    source={require('../assets/images/bombay_6.png')}  // Replace with the actual path to your image
-                    style={styles.image}
-                />
-            )
-        }
-        else if (currentCat == 7) {
-            return (
-                <Image
-                    source={require('../assets/images/brit_shorthair_7.png')}  // Replace with the actual path to your image
-                    style={styles.image}
-                />
-            )
-        }
-        else if (currentCat == 8) {
-            return (
-                <Image
-                    source={require('../assets/images/egypt_8.png')}  // Replace with the actual path to your image
-                    style={styles.image}
-                />
-            )
-        }
-        else if (currentCat == 9) {
-            return (
-                <Image
-                    source={require('../assets/images/maine_9.png')}  // Replace with the actual path to your image
-                    style={styles.image}
-                />
-            )
-        }
-        else if (currentCat == 10) {
-            return (
-                <Image
-                    source={require('../assets/images/persian_10.png')}  // Replace with the actual path to your image
-                    style={styles.image}
-                />
-            )
-        }
-        else if (currentCat == 11) {
-            return (
-                <Image
-                    source={require('../assets/images/ragdoll_11.png')}  // Replace with the actual path to your image
-                    style={styles.image}
-                />
-            )
-        }
-        else if (currentCat == 12) {
-            return (
-                <Image
-                    source={require('../assets/images/russian_12.png')}  // Replace with the actual path to your image
-                    style={styles.image}
-                />
-            )
-        }
-        else if (currentCat == 13) {
-            return (
-                <Image
-                    source={require('../assets/images/siamese_13.png')}  // Replace with the actual path to your image
-                    style={styles.image}
-                />
-            )
-        }
-        else if (currentCat == 14) {
-            return (
-                <Image
-                    source={require('../assets/images/sphynx_14.png')}  // Replace with the actual path to your image
-                    style={styles.image}
-                />
-            )
-        }
-        else if (currentCat == 15) {
-            return (
-                <Image
-                    source={require('../assets/images/tuxedo_15.png')}  // Replace with the actual path to your image
-                    style={styles.image}
-                />
-            )
-        }
+        //if (viewable[currentCat - 1]) {
+        //    setOldCat(currentCat);
+            if (currentCat == 1) {
+                return (
+                    <Image
+                        source={require('../assets/images/abyss_rect.png')}  // Replace with the actual path to your image
+                        style={styles.image}
+                    />
+                )
+            }
+            else if (currentCat == 2) {
+                return (
+                    <Image
+                        source={require('../assets/images/am_bob_info.png')}  // Replace with the actual path to your image
+                        style={styles.image}
+                    />
+                )
+            }
+            else if (currentCat == 3) {
+                return (
+                    <Image
+                        source={require('../assets/images/am_shorthair_3.png')}  // Replace with the actual path to your image
+                        style={styles.image}
+                    />
+                )
+            }
+            else if (currentCat == 4) {
+                return (
+                    <Image
+                        source={require('../assets/images/bengal_4.png')}  // Replace with the actual path to your image
+                        style={styles.image}
+                    />
+                )
+            }
+            else if (currentCat == 5) {
+                return (
+                    <Image
+                        source={require('../assets/images/birman_5.png')}  // Replace with the actual path to your image
+                        style={styles.image}
+                    />
+                )
+            }
+            else if (currentCat == 6) {
+                return (
+                    <Image
+                        source={require('../assets/images/bombay_6.png')}  // Replace with the actual path to your image
+                        style={styles.image}
+                    />
+                )
+            }
+            else if (currentCat == 7) {
+                return (
+                    <Image
+                        source={require('../assets/images/brit_shorthair_7.png')}  // Replace with the actual path to your image
+                        style={styles.image}
+                    />
+                )
+            }
+            else if (currentCat == 8) {
+                return (
+                    <Image
+                        source={require('../assets/images/egypt_8.png')}  // Replace with the actual path to your image
+                        style={styles.image}
+                    />
+                )
+            }
+            else if (currentCat == 9) {
+                return (
+                    <Image
+                        source={require('../assets/images/maine_9.png')}  // Replace with the actual path to your image
+                        style={styles.image}
+                    />
+                )
+            }
+            else if (currentCat == 10) {
+                return (
+                    <Image
+                        source={require('../assets/images/persian_10.png')}  // Replace with the actual path to your image
+                        style={styles.image}
+                    />
+                )
+            }
+            else if (currentCat == 11) {
+                return (
+                    <Image
+                        source={require('../assets/images/ragdoll_11.png')}  // Replace with the actual path to your image
+                        style={styles.image}
+                    />
+                )
+            }
+            else if (currentCat == 12) {
+                return (
+                    <Image
+                        source={require('../assets/images/russian_12.png')}  // Replace with the actual path to your image
+                        style={styles.image}
+                    />
+                )
+            }
+            else if (currentCat == 13) {
+                return (
+                    <Image
+                        source={require('../assets/images/siamese_13.png')}  // Replace with the actual path to your image
+                        style={styles.image}
+                    />
+                )
+            }
+            else if (currentCat == 14) {
+                return (
+                    <Image
+                        source={require('../assets/images/sphynx_14.png')}  // Replace with the actual path to your image
+                        style={styles.image}
+                    />
+                )
+            }
+            else if (currentCat == 15) {
+                return (
+                    <Image
+                        source={require('../assets/images/tuxedo_15.png')}  // Replace with the actual path to your image
+                        style={styles.image}
+                    />
+                )
+            }
+        //}
+        //else {
+
+        //}
     }
 
     function onForward() {
@@ -221,3 +232,5 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',  // Adjust the resizeMode as needed (cover, contain, stretch, etc.)
       },
 })
+
+export default InfoPage;
