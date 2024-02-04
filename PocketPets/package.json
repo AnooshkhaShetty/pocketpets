@@ -14,6 +14,8 @@
     "@react-native-firebase/firestore": "^18.8.0",
     "@react-navigation/native-stack": "^6.9.17",
     "expo": "~50.0.5",
+    "expo-av": "^13.10.4",
+    "expo-camera": "^14.0.3",
     "expo-font": "~11.10.2",
     "expo-image-picker": "~14.7.1",
     "expo-status-bar": "~1.11.1",
