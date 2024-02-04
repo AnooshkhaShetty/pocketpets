@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity, Pressable } from "react-native";
 import {useState, useEffect} from "react";
 import { useNavigation } from "@react-navigation/native";
-import { getFirestore, doc, getDoc } from "firebase/firestore";
+import { getFirestore, doc, getDoc, onSnapshot } from "firebase/firestore";
 import { app, db } from '../firebase_config.js';
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
@@ -10,39 +10,31 @@ import "firebase/compat/firestore";
 
 export default function Home() {
   const navigation = useNavigation();
+  const [myData, setMyData] = useState();
+  const [update, setUpdate] = useState(true);
 
   const db = getFirestore();
 
-  const fetchData = async () => {
-  try {
-    const docRef = doc(db, "data", "data");
-    const docSnap = await getDoc(docRef);
+  useEffect(() => {
+    const fetchData = async () => {
+    try {
+      const docRef = doc(db, "data", "data");
+      const docSnap = await getDoc(docRef);
+      console.log('here');
 
-    if (docSnap.exists()) {
-      console.log("Document data:", docSnap.data());
-    } else {
-      console.log("No such document!");
+      if (docSnap.exists()) {
+        console.log("Document data:", docSnap.data());
+        setMyData(docSnap.data());
+        setUpdate(false);
+      } else {
+        console.log("No such document!");
+      }
+    } catch (error) {
+      console.error("Error getting document:", error);
     }
-  } catch (error) {
-    console.error("Error getting document:", error);
-  }
-  };
-
-  fetchData();
-
-  /*const todoRef = firebase.firestore().collection('data');
-
-
-    useEffect(async () => {
-    todoRef
-    .onSnapshot(
-        querySnapshot.forEach((doc) => {
-          const {heading, text} = doc.data()
-          console.log(heading)
-          console.log(text)
-        })
-    )
-  }) */
+    };
+    fetchData();
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -72,7 +64,7 @@ export default function Home() {
             style={styles.circleImage}
           />
         </Pressable>
-        <Pressable style={styles.circleButton} onPress={() => navigation.navigate('ViewPage')}>
+        <Pressable style={styles.circleButton} onPress={() => navigation.navigate('ViewPage' , { unlocked: myData })}>
           <Image
             source={require("../assets/images/viewphotos.png")}
             style={styles.circleImage}

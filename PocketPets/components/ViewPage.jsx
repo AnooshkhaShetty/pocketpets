@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity, Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -39,18 +39,32 @@ const caughtImages = [
   require("../assets/images/caught15.png"),
 ];
 
-export default function ViewPage() {  
+export default function ViewPage({route}) {  
+  const { unlocked } = route.params;
+  console.log('view info: ' + unlocked);
   const navigation = useNavigation();
 
+  const [vision, setVision] = useState(unlocked.unlocked);
+  console.log(vision);
   const [caught, setCaught] = useState(Array(initialImages.length).fill(false));
 
+  useEffect(() => {
+    // change caught based on vision indices
+      const newCaught = [...caught];
+      for (let i = 0; i <= vision.length; i++) {
+        console.log(vision[i]);
+        newCaught[vision[i] - 1] = true;
+      }
+      setCaught(newCaught);
+  }, [])
+
   const handleCatch = (index) => {
-    if (index == 0) {
+/*     if (index == 0) {
       const newCaught = [...caught];
       newCaught[3] = true;
       newCaught[7] = true;
       setCaught(newCaught);
-    }
+    } */
     if (caught[index] == false) {
       return;
     }
